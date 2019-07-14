@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // temp
-import { counterReducer } from './counter.reducer';
+import * as fromCounter from './counter.reducer';
 import { MyCounterComponent } from './containers/my-counter.component';
 
 const ENTRY_COMPONENTS = [MyCounterComponent];
@@ -14,7 +14,7 @@ const COMPONENTS = [...ENTRY_COMPONENTS];
 
 @NgModule({
   declarations: [AppComponent, COMPONENTS],
-  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot({ count: counterReducer })],
+  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot({ count: fromCounter.reducer })],
   providers: [],
   bootstrap: [AppComponent],
 })

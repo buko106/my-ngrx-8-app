@@ -1,16 +1,11 @@
 <h1>{{ title }}</h1>
 
-<button id="increment" (click)="increment()">Increment</button>
+<button (click)="incrementMe()">Increment Me</button>
 
-<div>Current Count: {{ count$ | async }}</div>
+<div>Current Count: {{ (count$ | async).myScore }} : {{ (count$ | async).yourScore }}</div>
 
-<button id="decrement" (click)="decrement()">Decrement</button>
+<button (click)="incrementYou()">Increment You</button>
 
-<button id="reset" (click)="reset()">Reset Counter</button>
+<button (click)="reset()">Reset Counter</button>
+<button (click)="setScore()">Set 2 : 2</button>
 
-<p>
-  <a routerLink="/counter-1">counter-1</a>
-</p>
-<p>
-  <a routerLink="/counter-2">counter-2</a>
-</p>

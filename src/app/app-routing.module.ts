@@ -5,7 +5,6 @@ import { MyCounterComponent } from './containers/my-counter.component';
 const routes: Routes = [
   { path: 'counter-1', pathMatch: 'full', component: MyCounterComponent },
   { path: 'counter-2', pathMatch: 'full', component: MyCounterComponent },
-  { path: '**', redirectTo: 'counter-1' },
 ];
 
 @NgModule({

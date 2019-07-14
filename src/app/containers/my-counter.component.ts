@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, decrement, reset } from '../counter.actions';
+import { incrementMe, incrementYou, setScore, reset } from '../counter.actions';
+import { State as CounterState } from '../counter.reducer';
 
 @Component({
   selector: 'app-my-counter',
   templateUrl: './my-counter.component.html',
   styleUrls: ['./my-counter.component.scss'],
 })
-export class MyCounterComponent {
-  count$: Observable<number>;
+export class MyCounterComponent implements OnInit, OnDestroy {
+  count$: Observable<CounterState>;
 
   constructor(route: ActivatedRoute, private store: Store<{ count: number }>) {
     this.count$ = store.pipe(select('count'));
@@ -19,12 +20,23 @@ export class MyCounterComponent {
 
   readonly title: string;
 
-  increment() {
-    this.store.dispatch(increment());
+  ngOnInit(): void {
+    console.log('[MyCounterComponent] ngOnInit');
+  }
+  ngOnDestroy(): void {
+    console.log('[MyCounterComponent] ngOnDestroy');
   }
 
-  decrement() {
-    this.store.dispatch(decrement());
+  incrementMe() {
+    this.store.dispatch(incrementMe());
+  }
+
+  incrementYou() {
+    this.store.dispatch(incrementYou());
+  }
+
+  setScore() {
+    this.store.dispatch(setScore(2, 2));
   }
 
   reset() {
