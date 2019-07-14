@@ -1,0 +1,16 @@
+<h1>{{ title }}</h1>
+
+<button id="increment" (click)="increment()">Increment</button>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<button id="decrement" (click)="decrement()">Decrement</button>
+
+<button id="reset" (click)="reset()">Reset Counter</button>
+
+<p>
+  <a routerLink="/counter-1">counter-1</a>
+</p>
+<p>
+  <a routerLink="/counter-2">counter-2</a>
+</p>
