@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { incrementMe, incrementYou, setScore, reset } from '../counter.actions';
-import { State as CounterState } from '../counter.reducer';
+import { incrementMe, incrementYou, setScore, reset } from './counter.actions';
+import { State as CounterState } from './counter.reducer';
 
 @Component({
   selector: 'app-my-counter',
