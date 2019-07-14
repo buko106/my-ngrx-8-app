@@ -1,0 +1,20 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~
+    docker:
+      - image: circleci/node:10-stretch
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build -- --prod
+
+workflow:
+  test-build:
+    jobs:
+      - build
