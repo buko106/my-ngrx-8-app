@@ -11,10 +11,12 @@ import { State as CounterState } from './counter.reducer';
   styleUrls: ['./my-counter.component.scss'],
 })
 export class MyCounterComponent implements OnInit, OnDestroy {
-  count$: Observable<CounterState>;
+  myScore$: Observable<CounterState['myScore']>;
+  yourScore$: Observable<CounterState['yourScore']>;
 
-  constructor(route: ActivatedRoute, private store: Store<{ count: number }>) {
-    this.count$ = store.pipe(select('count'));
+  constructor(route: ActivatedRoute, private store: Store<{ count: CounterState }>) {
+    this.myScore$ = store.pipe(select('count', 'myScore'));
+    this.yourScore$ = store.pipe(select('count', 'yourScore'));
     this.title = route.snapshot.toString();
   }
 

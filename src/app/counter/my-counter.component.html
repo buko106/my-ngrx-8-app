@@ -2,7 +2,7 @@
 
 <button (click)="incrementMe()">Increment Me</button>
 
-<div>Current Count: {{ (count$ | async).myScore }} : {{ (count$ | async).yourScore }}</div>
+<div>Current Count: {{ myScore$ | async }} : {{ yourScore$ | async }}</div>
 
 <button (click)="incrementYou()">Increment You</button>
 
